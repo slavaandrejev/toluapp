@@ -1,9 +1,3 @@
-# tolua++ for Lua 5.2/5.3
+# toluapp for Nightshade NG
 
-This is a patched version of tolua++ for Lua 5.2 and 5.3. Earlier versions of Lua are not supported.
-
-The 'master' branch has been converted to CMake. The 'lua52' branch contains the same core changes with the original SCons build system intact.
-
-**WARNING**
-
-The patch might be incomplete at this time. Use at your own risk!
+Nightshade NG is simulation and visualization software for teaching and exploring astronomy, Earth science, and related topics, developed by Digitalis Education Solutions. This copy of toluapp holds a fork of tolua++ modified to work with Nightshade NG. This being said, it will work with other software too, it's just there is no goal to make it compile on Mac OS or Windows, for example.

@@ -267,11 +267,17 @@ function Package(name, fn)
 
     -- deal with include directive
     local nsubst
+    local parent_dir, _, _ = (flags.f):match("^(.-)([^\\/]-%.([^\\/%.]-))%.?$")
     repeat
         code, nsubst = gsub(code, '\n%s*%$(.)file%s*"(.-)"([^\n]*)\n',
             function(kind, fn, extra)
                 local _, _, ext = strfind(fn, ".*%.(.*)$")
-                local fp, msg = openfile(fn, 'r')
+                local fp, msg
+                if fn:sub(1, 1) ~= "/" then
+                    fp, msg = openfile(parent_dir .. fn, 'r')
+                else
+                    fp, msg = openfile(fn, 'r')
+                end
                 if not fp then
                     error('#' .. msg .. ': ' .. fn)
                 end
